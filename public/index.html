@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IdeaRoots — Find the roots of your ideas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>IdeaRoots</h1>
+      <p class="tagline">Type your idea. Discover which thinkers — across centuries and cultures — explored the same terrain.</p>
+    </header>
+
+    <form id="idea-form">
+      <textarea
+        id="idea-input"
+        placeholder="e.g. &quot;I think true freedom means accepting what you can't control...&quot;"
+        rows="4"
+        maxlength="1000"
+        required
+      ></textarea>
+      <div class="form-footer">
+        <span id="char-count">0 / 1000</span>
+        <button type="submit" id="submit-btn">Find the roots</button>
+      </div>
+    </form>
+
+    <section id="results" class="hidden">
+      <div id="results-content"></div>
+    </section>
+
+    <section id="loading" class="hidden">
+      <div class="loader"></div>
+      <p>Searching across traditions...</p>
+    </section>
+
+    <footer>
+      <p>Real thinkers. Real texts. Real traditions. Not AI slop.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
