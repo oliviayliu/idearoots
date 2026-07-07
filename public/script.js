@@ -71,6 +71,8 @@ function renderResults(concepts) {
       </div>
       <p class="result-description">${concept.explanation}</p>
       <p class="thinker">${concept.thinkers}</p>
+      <p class="source-text">${concept.source_text}</p>
+      ${concept.learn_more_url ? `<a class="learn-more" href="${concept.learn_more_url}" target="_blank" rel="noopener">Read more &rarr;</a>` : ''}
     `;
 
     card.style.animationDelay = `${index * 0.1}s`;
