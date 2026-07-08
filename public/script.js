@@ -1,14 +1,18 @@
 const form = document.getElementById('idea-form');
 const input = document.getElementById('idea-input');
-const charCount = document.getElementById('char-count');
 const submitBtn = document.getElementById('submit-btn');
 const resultsSection = document.getElementById('results');
-const resultsContent = document.getElementById('results-content');
+const bestMatch = document.getElementById('best-match');
+const othersToggle = document.getElementById('others-toggle');
+const othersContainer = document.getElementById('others');
+const showOthersBtn = document.getElementById('show-others');
 const loading = document.getElementById('loading');
 
-// Character counter
-input.addEventListener('input', () => {
-  charCount.textContent = `${input.value.length} / 1000`;
+showOthersBtn.addEventListener('click', () => {
+  othersContainer.classList.toggle('hidden');
+  showOthersBtn.textContent = othersContainer.classList.contains('hidden')
+    ? 'See more voices'
+    : 'Show less';
 });
 
 form.addEventListener('submit', async (e) => {
@@ -17,7 +21,6 @@ form.addEventListener('submit', async (e) => {
   const idea = input.value.trim();
   if (!idea) return;
 
-  // Show loading, hide results
   submitBtn.disabled = true;
   submitBtn.textContent = 'Searching...';
   resultsSection.classList.add('hidden');
@@ -30,54 +33,54 @@ form.addEventListener('submit', async (e) => {
       body: JSON.stringify({ idea }),
     });
 
-    if (!response.ok) {
-      throw new Error('Something went wrong. Please try again.');
-    }
+    if (!response.ok) throw new Error('Something went wrong. Please try again.');
 
     const data = await response.json();
-    renderResults(data.concepts);
+    renderResults(data);
   } catch (err) {
-    resultsContent.innerHTML = `<p style="color: var(--accent); text-align: center; padding: 2rem 0;">${err.message}</p>`;
+    bestMatch.innerHTML = `<p style="color: var(--accent); text-align: center; padding: 2rem 0;">${err.message}</p>`;
+    othersToggle.classList.add('hidden');
+    othersContainer.classList.add('hidden');
     resultsSection.classList.remove('hidden');
   } finally {
     loading.classList.add('hidden');
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Find the roots';
+    submitBtn.textContent = 'Find who thought this before';
   }
 });
 
-function renderResults(concepts) {
-  resultsContent.innerHTML = '';
-
-  concepts.forEach((concept, index) => {
-    const card = document.createElement('div');
-    card.className = `result-card${concept.is_closest ? ' closest-match' : ''}`;
-
-    const closenessPercent = concept.closeness * 100;
-
-    card.innerHTML = `
-      ${concept.is_closest ? '<span class="closest-label">Closest match</span>' : ''}
-      <div class="result-header">
-        <span class="concept-name">
-          ${concept.name}${concept.original_term ? `<span class="original-term">${concept.original_term}</span>` : ''}
-        </span>
-        <span class="tradition-badge">${concept.tradition}</span>
+function renderCard(concept, isBest) {
+  const prefix = isBest ? 'best' : 'other';
+  return `
+    <div class="${prefix}-card">
+      <p class="${prefix}-connection">${concept.connection_line}</p>
+      <div class="${isBest ? 'best-concept' : ''}" style="${isBest ? '' : 'margin-bottom: 0.6rem'}">
+        <span class="concept-name">${concept.name}</span>${concept.original_term ? `<span class="original-term">${concept.original_term}</span>` : ''}
+        <span class="tradition">${concept.tradition}</span>
       </div>
-      <div class="closeness">
-        <div class="closeness-bar">
-          <div class="closeness-fill" style="width: ${closenessPercent}%"></div>
-        </div>
-        <span>${Math.round(closenessPercent)}% match</span>
-      </div>
-      <p class="result-description">${concept.explanation}</p>
-      <p class="thinker">${concept.thinkers}</p>
-      <p class="source-text">${concept.source_text}</p>
-      ${concept.learn_more_url ? `<a class="learn-more" href="${concept.learn_more_url}" target="_blank" rel="noopener">Read more &rarr;</a>` : ''}
-    `;
+      <p class="explanation">${concept.explanation}</p>
+      <p class="source-line">${concept.source_text}</p>
+      ${concept.source_url ? `<a class="source-link" href="${concept.source_url}" target="_blank" rel="noopener">Read the original text &rarr;</a>` : ''}
+    </div>
+  `;
+}
 
-    card.style.animationDelay = `${index * 0.1}s`;
-    resultsContent.appendChild(card);
-  });
+function renderResults(data) {
+  // Render best match
+  if (data.best) {
+    bestMatch.innerHTML = renderCard(data.best, true);
+  }
+
+  // Render others
+  if (data.others && data.others.length > 0) {
+    othersContainer.innerHTML = data.others.map(c => renderCard(c, false)).join('');
+    othersToggle.classList.remove('hidden');
+    othersContainer.classList.add('hidden');
+    showOthersBtn.textContent = 'See more voices';
+  } else {
+    othersToggle.classList.add('hidden');
+    othersContainer.classList.add('hidden');
+  }
 
   resultsSection.classList.remove('hidden');
 }
