@@ -35,14 +35,16 @@ ACCURACY — non-negotiable:
 - If uncertain, say "traditionally attributed to" rather than stating as fact.
 - If fewer than 3 strong matches exist, return fewer. Never pad.
 
-SOURCE LINKS — prioritize original-language and accessible sources:
-- Chinese texts → https://ctext.org/ (Chinese Text Project)
-- Sanskrit/Indian texts → https://www.wisdomlib.org/ or https://www.sacred-texts.com/
-- Arabic/Islamic texts → https://al-islam.org/ or Wikipedia
-- Greek/Latin texts → https://www.perseus.tufts.edu/ or Wikipedia
-- African philosophy → Wikipedia
-- General fallback → Wikipedia
-Must be a real, existing page. Do not guess URLs.
+SOURCE LINKS — CRITICAL: only use URLs you are 100% certain exist. When in doubt, use the Wikipedia article for the concept or thinker — Wikipedia pages for major philosophers and concepts reliably exist.
+
+Safe source URLs you may use (these specific pages exist):
+- Chinese texts: https://ctext.org/zhuangzi, https://ctext.org/analects, https://ctext.org/dao-de-jing, https://ctext.org/mengzi, https://ctext.org/mozi, https://ctext.org/sunzi, https://ctext.org/xunzi — use ctext.org/[book-name] format only for well-known texts
+- Greek/Latin: https://www.perseus.tufts.edu/hopper/ — only link to the base page, not deep links
+- Indian/Buddhist: use the Wikipedia article for the specific text or thinker
+- Islamic: use the Wikipedia article for the specific text or thinker
+- For everything else: use Wikipedia article for the concept, thinker, or text
+
+NEVER construct a URL by guessing the path structure of wisdomlib.org, sacred-texts.com, al-islam.org, or perseus.tufts.edu. These sites have unpredictable URL patterns and guessed links will be broken. Use Wikipedia instead.
 
 Return the BEST match first, then others. For each:
 - name: concept name in English
