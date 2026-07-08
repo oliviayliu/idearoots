@@ -1,10 +1,12 @@
 # IdeaRoots
 
-You come up with 10,000 ideas a day. By minute two, they're gone.
+You (I) come up with 10,000 ideas a day. By minute two, they're gone.
 
-Some of those ideas are good. Some of them are old. Thinkers across centuries and cultures explored the same terrain, wrote it down, argued about it, built entire schools of thought around it. But you'd never know. Philosophy and social science sit behind jargon and academic gatekeeping. The books exist. The access doesn't.
+But maybe in fact they areconnected to real, grounded thinking across cultures and centuries? 
 
-IdeaRoots changes that. Write what's on your mind. The app finds the philosopher or social scientist from history who got there before you, from Confucian to Sufi, Stoic to Yoruba, Buddhist to Norse. One best match up front. More voices if you want them. Each result links to the original text in its original language. Save your favourites. Share them with friends.
+Thinkers in the history explored the same terrain, wrote it down, argued about it, built entire schools of thought around it. Philosophy and social science sit behind jargon and academic gatekeeping. 
+
+IdeaRoots build the across. Write what's on your mind. The app finds the philosopher or social scientist from history who got there before you, from Confucian to Sufi, Stoic to Yoruba, Buddhist to Norse. One best match up front. More voices if you want them. Each result links to the original text in its original language. Save your favourites. Share them with friends.
 
 ## How it works
 
