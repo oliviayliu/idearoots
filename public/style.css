@@ -278,6 +278,150 @@ button[type="submit"]:disabled {
   font-size: 0.82rem;
 }
 
+/* Action buttons (save/share) */
+#result-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.action-btn {
+  padding: 0.5rem 1.2rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.action-btn:hover {
+  border-color: var(--accent-light);
+  color: var(--accent);
+}
+
+.action-btn:disabled {
+  color: var(--accent);
+  border-color: var(--accent-light);
+  cursor: default;
+}
+
+.action-btn-subtle {
+  border: none;
+  font-size: 0.82rem;
+  color: #b5a68e;
+  margin-top: 0.8rem;
+}
+
+.action-btn-subtle:hover {
+  color: var(--accent);
+}
+
+/* Saved ideas */
+#saved-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.saved-title {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text-soft);
+  margin-bottom: 1.2rem;
+}
+
+.saved-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.6rem;
+  text-align: left;
+  transition: border-color 0.2s;
+}
+
+.saved-card:hover {
+  border-color: var(--accent-light);
+}
+
+.saved-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.saved-idea {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+.delete-saved {
+  background: none;
+  border: none;
+  color: #c5b9a8;
+  font-size: 0.85rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.delete-saved:hover {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.saved-connection {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  line-height: 1.45;
+}
+
+.saved-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.concept-name-sm {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.original-term-sm {
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.tradition-sm {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  background: var(--accent-bg);
+  border-radius: 20px;
+  color: var(--text-soft);
+}
+
+.saved-date {
+  font-size: 0.75rem;
+  color: #b5a68e;
+  margin-left: auto;
+}
+
 /* Utility */
 .hidden {
   display: none;
