@@ -1,15 +1,17 @@
 # IdeaRoots
 
-Write what's on your mind. Find the thinkers who got there before you.
+You come up with 10,000 ideas a day. By minute two, they're gone.
 
-IdeaRoots connects your everyday ideas to philosophers and social scientists from across history and cultures — Chinese, Indian, Islamic, Greek, African, Nordic, and many more. No jargon. No "Western vs Eastern." Just real people, real texts, real traditions.
+Some of those ideas are good. Some of them are old. Thinkers across centuries and cultures explored the same terrain, wrote it down, argued about it, built entire schools of thought around it. But you'd never know. Philosophy and social science sit behind jargon and academic gatekeeping. The books exist. The access doesn't.
+
+IdeaRoots changes that. Write what's on your mind. The app finds the philosopher or social scientist from history who got there before you, from Confucian to Sufi, Stoic to Yoruba, Buddhist to Norse. One best match up front. More voices if you want them. Each result links to the original text in its original language. Save your favourites. Share them with friends.
 
 ## How it works
 
-1. You type an idea or thought
+1. Write your idea or thought
 2. IdeaRoots finds the closest match from history
 3. You see who thought this before you, where they were, and what they wrote
-4. Links take you to the original text in its original language
+4. Save it or copy it to share
 
 ## Example
 
@@ -22,10 +24,13 @@ IdeaRoots connects your everyday ideas to philosophers and social scientists fro
 > From the *Zhuangzi*, Ch. 2 (Qi Wu Lun)
 > [Read the original text](https://ctext.org/zhuangzi/qi-wu-lun)
 
+## Try it
+
+**[idearoots.vercel.app](https://idearoots.vercel.app)**
+
 ## Run it locally
 
 ```bash
-# Clone and install
 git clone https://github.com/oliviayliu/idearoots.git
 cd idearoots
 npm install
@@ -33,7 +38,6 @@ npm install
 # Add your free Groq API key (get one at console.groq.com)
 echo "GROQ_API_KEY=gsk_your-key-here" > .env
 
-# Start
 npm start
 # Open http://localhost:3000
 ```
@@ -41,13 +45,13 @@ npm start
 ## Stack
 
 - **Frontend**: HTML + CSS + vanilla JS (no framework)
-- **Backend**: Node.js + Express
+- **Backend**: Node.js + Express (local), Vercel serverless (production)
 - **LLM**: Llama 3.3 70B via [Groq](https://groq.com) (free tier)
-- **Sources**: [ctext.org](https://ctext.org) (Chinese), [Perseus](https://www.perseus.tufts.edu) (Greek/Latin), [WisdomLib](https://www.wisdomlib.org) (Indian), [Sacred Texts](https://www.sacred-texts.com), Wikipedia
+- **Sources**: [ctext.org](https://ctext.org) (Chinese), [Perseus](https://www.perseus.tufts.edu) (Greek/Latin), Wikipedia, and others
 
 ## Traditions covered
 
-40+ specific traditions including Daoist, Confucian, Buddhist (Chinese/Indian/Japanese/Tibetan), Vedanta, Yoga, Sufi, Stoic, Platonic, Aristotelian, Epicurean, Roman, Norse, Celtic, Yoruba, Bantu, Existentialist, Pragmatist, and many more. No vague "Western" or "Eastern" labels.
+40+ specific traditions including Daoist, Confucian, Buddhist (Chinese, Indian, Japanese, Tibetan), Vedanta, Yoga, Sufi, Stoic, Platonic, Aristotelian, Epicurean, Roman, Norse, Celtic, Yoruba, Bantu, Existentialist, Pragmatist, and more. No vague "Western" or "Eastern" labels.
 
 ## License
 
